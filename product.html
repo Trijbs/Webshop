@@ -35,46 +35,39 @@
                     <img src="https://images.unsplash.com/photo-1525966222134-fdfa99b8ae77" alt="Thumbnail 3" class="thumbnail" data-img="https://images.unsplash.com/photo-1525966222134-fdfa99b8ae77">
                 </div>
             </div>
-            <div class="product-details">
-                <h1>Trijbs® Street Tee – White Heat Drop</h1>
-                <div class="price" id="product-price">€19,99 EUR</div>
-                <div class="availability" id="product-availability">In Stock</div>
-                <div class="shipping">Shipping calculated at checkout.</div>
-                <div class="color-options" role="radiogroup" aria-label="Choose color">
-                    <label>Choose color</label>
-                    <div class="color black" data-color="black" role="radio" aria-checked="false" tabindex="0"></div>
-                    <div class="color white" data-color="white" role="radio" aria-checked="true" tabindex="0"></div>
-                    <div class="color grey" data-color="grey" role="radio" aria-checked="false" tabindex="0"></div>
-                    <div class="color green" data-color="green" role="radio" aria-checked="false" tabindex="0"></div>
-                </div>
-                <div class="size-options" role="radiogroup" aria-label="Choose size">
-                    <label>Size</label>
-                    <button class="size-btn" data-size="XS" role="radio" aria-checked="false">XS</button>
-                    <button class="size-btn" data-size="S" role="radio" aria-checked="false">S</button>
-                    <button class="size-btn" data-size="M" role="radio" aria-checked="true">M</button>
-                    <button class="size-btn" data-size="L" role="radio" aria-checked="false">L</button>
-                </div>
-                <div class="quantity">
-                    <label for="quantity-input">Quantity</label>
-                    <div class="quantity-controls">
-                        <button class="quantity-btn" id="decrement">-</button>
-                        <input type="number" id="quantity-input" value="1" min="1" aria-label="Quantity">
-                        <button class="quantity-btn" id="increment">+</button>
+            <section class="product-detail">
+                <div class="product-gallery">
+                    <!-- Add multiple product images with zoom functionality -->
+                    <div class="main-image">
+                        <img src="path/to/product-main.jpg" alt="Product Main Image">
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <!-- Additional product images -->
                     </div>
                 </div>
-                <button class="add-to-cart" aria-label="Add to Cart">
-                    <span class="button-text">Add to Cart</span>
-                    <span class="spinner" style="display: none;"></span>
-                </button>
-                <div class="cart-message" id="cart-message" role="alert"></div>
-                <div class="social-share">
-                    <h3>Share this product</h3>
-                    <button class="share-btn" data-share="facebook">Facebook</button>
-                    <button class="share-btn" data-share="twitter">Twitter</button>
-                    <button class="share-btn" data-share="whatsapp">WhatsApp</button>
+                
+                <div class="product-info">
+                    <h1>Street Tee – White Heat Drop</h1>
+                    <div class="price">€19,99</div>
+                    <div class="rating">★★★★★</div>
+                    
+                    <!-- Size Selection -->
+                    <div class="size-selector">
+                        <label>Select Size</label>
+                        <div class="size-options">
+                            <button class="size-btn">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Add to Cart Button with dynamic state -->
+                    <button id="cartButton" class="cart-button">
+                        Add to Cart
+                    </button>
                 </div>
-            </div>
-        </div>
+            </section>
 
         <!-- Description Section -->
         <div class="description-section">

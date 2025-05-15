@@ -342,3 +342,12 @@ loadMoreReviewsBtn.addEventListener('click', loadMoreReviews);
 
 // Initial load
 loadMoreReviews();
+
+document.querySelector('.cart-button').addEventListener('click', function() {
+    if (!this.classList.contains('checkout')) {
+        this.classList.add('checkout');
+        this.textContent = 'Go to Checkout';
+    } else {
+        window.location.href = '/checkout.html';
+    }
+});
