@@ -3,76 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trijbs Cart</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cart - TRIJBS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff4d4d;
+            --secondary-color: #2a2a2a;
+            --text-color: #ffffff;
+            --background-color: #1a1a1a;
+            --accent-color: #28a745;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        body { background-color: var(--background-color); color: var(--text-color); }
+        header { background-color: rgba(26, 26, 26, 0.95); padding: 1rem 2rem; position: sticky; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .logo { font-size: 2rem; font-weight: bold; background: linear-gradient(45deg, var(--primary-color), #ff8080); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
+        nav { display: flex; gap: 2rem; }
+        nav a { color: var(--text-color); text-decoration: none; font-size: 1rem; position: relative; padding: 0.5rem 0; }
+        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s ease; }
+        nav a:hover::after { width: 100%; }
+        .cart-section { max-width: 900px; margin: 7rem auto 2rem auto; background: #232323; border-radius: 18px; padding: 2.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+        .cart-section h1 { font-size: 2rem; margin-bottom: 2rem; text-align: center; }
+        .cart-items { display: flex; flex-direction: column; gap: 2rem; }
+        .cart-item { display: flex; gap: 2rem; background: #292929; border-radius: 12px; padding: 1.5rem; align-items: center; }
+        .cart-item img { width: 100px; height: 100px; object-fit: cover; border-radius: 8px; }
+        .cart-item-details { flex: 1; }
+        .cart-item-details h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .cart-item-details p { font-size: 1rem; margin-bottom: 0.3rem; }
+        .cart-item-actions { display: flex; flex-direction: column; gap: 0.7rem; align-items: flex-end; }
+        .quantity-controls { display: flex; align-items: center; gap: 0.5rem; }
+        .quantity-btn { padding: 0.3rem 0.9rem; border: 1px solid #bbb; background: #2a2a2a; color: #fff; border-radius: 6px; cursor: pointer; }
+        .quantity-btn:hover { background: #444; }
+        .quantity-input { width: 50px; padding: 0.3rem; text-align: center; border: 1px solid #bbb; border-radius: 6px; background: #fff; color: #222; }
+        .remove-btn { background: var(--primary-color); color: #fff; border: none; border-radius: 6px; padding: 0.5rem 1.2rem; cursor: pointer; transition: background 0.2s; }
+        .remove-btn:hover { background: #e63939; }
+        .cart-total { text-align: right; margin-top: 2rem; font-size: 1.3rem; color: var(--primary-color); }
+        .checkout-btn { background: var(--accent-color); color: #fff; padding: 1rem 2.5rem; border: none; border-radius: 8px; font-size: 1.1rem; cursor: pointer; margin-top: 2rem; float: right; transition: background 0.2s; }
+        .checkout-btn:hover { background: #218838; }
+        .empty-cart { text-align: center; color: #bbb; font-size: 1.2rem; margin: 3rem 0; }
+        footer { background: var(--secondary-color); padding: 4rem 2rem; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+        .footer-section h3 { color: var(--primary-color); margin-bottom: 1.5rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin-bottom: 0.8rem; }
+        .footer-section ul li a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+        .footer-section ul li a:hover { color: var(--primary-color); }
+        @media (max-width: 900px) { .cart-section { padding: 1.5rem; } .cart-item { flex-direction: column; align-items: flex-start; gap: 1rem; } .cart-item-actions { align-items: flex-start; } }
+        @media (max-width: 600px) { .cart-section { padding: 0.5rem; } }
+    </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="logo">TRIJBS</div>
-        <div class="update">MORE UPDATES SOON!</div>
         <nav>
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
-            <a href="#">About</a>
+            <a href="#about">About</a>
             <a href="cart.html">Cart</a>
-            <a href="#">Account</a>
         </nav>
     </header>
-
-    <!-- Main Content -->
-    <div class="main-content">
+    <section class="cart-section">
         <h1>Your Cart</h1>
-        <div class="cart-items" id="cart-items"></div>
-        <div class="cart-total">
-            <h3>Total: <span id="cart-total">€0,00</span></h3>
-            <button class="checkout-btn" onclick="window.location.href='checkout.html'">Proceed to Checkout</button>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be injected here -->
         </div>
-    </div>
-
-    <!-- Footer -->
+        <div class="cart-total" id="cart-total">Total: €0.00</div>
+        <a href="checkout.html"><button class="checkout-btn">Go to Checkout</button></a>
+    </section>
     <footer>
-        <div class="footer-logo">
-            TRIJBS
-            <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About TRIJBS</h3>
+                <ul>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#sustainability">Sustainability</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                </ul>
             </div>
-            <p>© Copyright 2025 Trijbs Inc.</p>
-        </div>
-        <div class="footer-column">
-            <h3>Product</h3>
-            <a href="#">Download</a>
-            <a href="#">Pricing</a>
-            <a href="#">Locations</a>
-            <a href="#">Server</a>
-            <a href="#">Countries</a>
-        </div>
-        <div class="footer-column">
-            <h3>Category</h3>
-            <a href="#">Men</a>
-            <a href="#">Women</a>
-            <a href="#">Kids</a>
-            <a href="#">Best Seller</a>
-            <a href="#">New Arrivals</a>
-        </div>
-        <div class="footer-column">
-            <h3>My Account</h3>
-            <a href="#">My Account</a>
-            <a href="#">Discount</a>
-            <a href="#">Returns</a>
-            <a href="#">Order History</a>
-            <a href="#">Order Tracking</a>
-        </div>
-        <div class="footer-column">
-            <h3>Contact Us</h3>
-            <a href="#">Netherlands</a>
-            <a href="#">support@trijbs.nl</a>
-            <a href="#">+31 6 12345678</a>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#shipping">Shipping Info</a></li>
+                    <li><a href="#returns">Returns & Exchanges</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#instagram">Instagram</a></li>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#facebook">Facebook</a></li>
+                </ul>
+            </div>
         </div>
     </footer>
-
-    <script src="cart.js"></script>
+    <script>
+        // Example cart data (replace with real cart logic or localStorage)
+        let cart = [
+            {
+                name: "Trijbs® Street Tee – White Heat Drop",
+                image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80",
+                color: "Black",
+                size: "M",
+                price: 19.99,
+                quantity: 2
+            }
+        ];
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<div class="empty-cart">Your cart is empty.</div>';
+                cartTotal.textContent = 'Total: €0.00';
+                return;
+            }
+            let total = 0;
+            cart.forEach((item, idx) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                const el = document.createElement('div');
+                el.className = 'cart-item';
+                el.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="cart-item-details">
+                        <h3>${item.name}</h3>
+                        <p>Color: ${item.color}</p>
+                        <p>Size: ${item.size}</p>
+                        <p>Price: €${item.price.toFixed(2)}</p>
+                        <p>Subtotal: €${itemTotal.toFixed(2)}</p>
+                    </div>
+                    <div class="cart-item-actions">
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(${idx}, -1)">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(${idx}, 1)">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(${idx})">Remove</button>
+                    </div>
+                `;
+                cartItems.appendChild(el);
+            });
+            cartTotal.textContent = `Total: €${total.toFixed(2)}`;
+        }
+        function updateQuantity(idx, change) {
+            if (cart[idx].quantity + change < 1) return;
+            cart[idx].quantity += change;
+            renderCart();
+        }
+        function removeItem(idx) {
+            cart.splice(idx, 1);
+            renderCart();
+        }
+        renderCart();
+    </script>
 </body>
 </html>

@@ -3,111 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trijbs Checkout</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Checkout - TRIJBS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff4d4d;
+            --secondary-color: #2a2a2a;
+            --text-color: #ffffff;
+            --background-color: #1a1a1a;
+            --accent-color: #28a745;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        body { background-color: var(--background-color); color: var(--text-color); }
+        header { background-color: rgba(26, 26, 26, 0.95); padding: 1rem 2rem; position: sticky; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .logo { font-size: 2rem; font-weight: bold; background: linear-gradient(45deg, var(--primary-color), #ff8080); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
+        nav { display: flex; gap: 2rem; }
+        nav a { color: var(--text-color); text-decoration: none; font-size: 1rem; position: relative; padding: 0.5rem 0; }
+        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s ease; }
+        nav a:hover::after { width: 100%; }
+        .checkout-section { max-width: 1000px; margin: 7rem auto 2rem auto; background: #232323; border-radius: 18px; padding: 2.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.15); display: flex; gap: 3rem; }
+        .checkout-form { flex: 1.2; }
+        .checkout-form h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .checkout-form form { display: flex; flex-direction: column; gap: 1.2rem; }
+        .checkout-form label { font-size: 1rem; margin-bottom: 0.3rem; }
+        .checkout-form input { padding: 0.8rem; border: 1px solid #bbb; border-radius: 6px; font-size: 1rem; background: #fff; color: #222; }
+        .pay-btn { background: var(--accent-color); color: #fff; padding: 1rem 2.5rem; border: none; border-radius: 8px; font-size: 1.1rem; cursor: pointer; margin-top: 1.5rem; transition: background 0.2s; }
+        .pay-btn:hover { background: #218838; }
+        .payment-message { margin-top: 1rem; font-size: 1rem; display: none; }
+        .payment-message.success { color: var(--accent-color); }
+        .payment-message.error { color: var(--primary-color); }
+        .checkout-summary { flex: 1; background: #292929; border-radius: 12px; padding: 2rem; }
+        .checkout-summary h3 { font-size: 1.2rem; margin-bottom: 1rem; }
+        .summary-item { display: flex; justify-content: space-between; margin-bottom: 0.7rem; }
+        .summary-total { font-weight: bold; color: var(--primary-color); font-size: 1.1rem; margin-top: 1.5rem; }
+        @media (max-width: 900px) { .checkout-section { flex-direction: column; padding: 1.5rem; gap: 2rem; } .checkout-summary { padding: 1rem; } }
+        @media (max-width: 600px) { .checkout-section { padding: 0.5rem; } }
+        footer { background: var(--secondary-color); padding: 4rem 2rem; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+        .footer-section h3 { color: var(--primary-color); margin-bottom: 1.5rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin-bottom: 0.8rem; }
+        .footer-section ul li a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+        .footer-section ul li a:hover { color: var(--primary-color); }
+    </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="logo">TRIJBS</div>
-        <div class="update">MORE UPDATES SOON!</div>
         <nav>
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
-            <a href="#">About</a>
+            <a href="#about">About</a>
             <a href="cart.html">Cart</a>
-            <a href="#">Account</a>
         </nav>
     </header>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1>Checkout</h1>
-        <div class="checkout-summary">
-            <h2>Order Summary</h2>
-            <div id="checkout-items"></div>
-            <div class="cart-total">
-                <h3>Total: <span id="checkout-total">€0,00</span></h3>
-            </div>
-        </div>
+    <section class="checkout-section">
         <div class="checkout-form">
-            <h2>Billing Details</h2>
+            <h2>Checkout</h2>
             <form id="checkout-form">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" required>
-                
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
-                
-                <label for="address">Address</label>
+                <label for="address">Shipping Address</label>
                 <input type="text" id="address" name="address" required>
-                
-                <label for="card-number">Card Number</label>
-                <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
-                
-                <div class="card-details">
-                    <div>
-                        <label for="expiry">Expiry Date</label>
-                        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
-                    </div>
-                    <div>
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" placeholder="123" required>
-                    </div>
-                </div>
-                
-                <button type="submit" class="pay-btn">
-                    <span class="button-text">Pay Now</span>
-                    <span class="spinner" style="display: none;"></span>
-                </button>
-                <div class="payment-message" id="payment-message" role="alert"></div>
+                <label for="card">Card Number</label>
+                <input type="text" id="card" name="card" maxlength="19" required>
+                <label for="expiry">Expiry Date</label>
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required>
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" maxlength="4" required>
+                <button type="submit" class="pay-btn" id="pay-btn">Pay Now</button>
+                <div class="payment-message" id="payment-message"></div>
             </form>
         </div>
-    </div>
-
-    <!-- Footer -->
+        <div class="checkout-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-item"><span>Trijbs® Street Tee</span><span>€19.99 x 2</span></div>
+            <div class="summary-total">Total: €39.98</div>
+        </div>
+    </section>
     <footer>
-        <div class="footer-logo">
-            TRIJBS
-            <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About TRIJBS</h3>
+                <ul>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#sustainability">Sustainability</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                </ul>
             </div>
-            <p>© Copyright 2025 Trijbs Inc.</p>
-        </div>
-        <div class="footer-column">
-            <h3>Product</h3>
-            <a href="#">Download</a>
-            <a href="#">Pricing</a>
-            <a href="#">Locations</a>
-            <a href="#">Server</a>
-            <a href="#">Countries</a>
-        </div>
-        <div class="footer-column">
-            <h3>Category</h3>
-            <a href="#">Men</a>
-            <a href="#">Women</a>
-            <a href="#">Kids</a>
-            <a href="#">Best Seller</a>
-            <a href="#">New Arrivals</a>
-        </div>
-        <div class="footer-column">
-            <h3>My Account</h3>
-            <a href="#">My Account</a>
-            <a href="#">Discount</a>
-            <a href="#">Returns</a>
-            <a href="#">Order History</a>
-            <a href="#">Order Tracking</a>
-        </div>
-        <div class="footer-column">
-            <h3>Contact Us</h3>
-            <a href="#">Netherlands</a>
-            <a href="#">support@trijbs.nl</a>
-            <a href="#">+31 6 12345678</a>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#shipping">Shipping Info</a></li>
+                    <li><a href="#returns">Returns & Exchanges</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#instagram">Instagram</a></li>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#facebook">Facebook</a></li>
+                </ul>
+            </div>
         </div>
     </footer>
-
-    <script src="checkout.js"></script>
+    <script>
+        // Simulate payment and redirect
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const payBtn = document.getElementById('pay-btn');
+            const paymentMessage = document.getElementById('payment-message');
+            payBtn.disabled = true;
+            paymentMessage.textContent = 'Processing payment...';
+            paymentMessage.className = 'payment-message';
+            paymentMessage.style.display = 'block';
+            setTimeout(() => {
+                paymentMessage.textContent = 'Payment successful! Redirecting...';
+                paymentMessage.className = 'payment-message success';
+                setTimeout(() => {
+                    window.location.href = 'thankyou.html';
+                }, 1800);
+            }, 1800);
+        });
+    </script>
 </body>
 </html>
