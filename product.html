@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trijbs Product Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">TRIJBS</div>
+        <div class="update">MORE UPDATES SOON!</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="#">About</a>
+            <a href="cart.html">Cart</a>
+            <a href="#">Account</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="product-section">
+            <div class="product-image">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="Trijbs Street Tee" id="product-img">
+                    <div class="zoom-lens"></div>
+                    <div class="zoom-result"></div>
+                </div>
+                <div class="image-gallery">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="Thumbnail 1" class="thumbnail" data-img="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c" alt="Thumbnail 2" class="thumbnail" data-img="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
+                    <img src="https://images.unsplash.com/photo-1525966222134-fdfa99b8ae77" alt="Thumbnail 3" class="thumbnail" data-img="https://images.unsplash.com/photo-1525966222134-fdfa99b8ae77">
+                </div>
+            </div>
+            <div class="product-details">
+                <h1>Trijbs® Street Tee – White Heat Drop</h1>
+                <div class="price" id="product-price">€19,99 EUR</div>
+                <div class="availability" id="product-availability">In Stock</div>
+                <div class="shipping">Shipping calculated at checkout.</div>
+                <div class="color-options" role="radiogroup" aria-label="Choose color">
+                    <label>Choose color</label>
+                    <div class="color black" data-color="black" role="radio" aria-checked="false" tabindex="0"></div>
+                    <div class="color white" data-color="white" role="radio" aria-checked="true" tabindex="0"></div>
+                    <div class="color grey" data-color="grey" role="radio" aria-checked="false" tabindex="0"></div>
+                    <div class="color green" data-color="green" role="radio" aria-checked="false" tabindex="0"></div>
+                </div>
+                <div class="size-options" role="radiogroup" aria-label="Choose size">
+                    <label>Size</label>
+                    <button class="size-btn" data-size="XS" role="radio" aria-checked="false">XS</button>
+                    <button class="size-btn" data-size="S" role="radio" aria-checked="false">S</button>
+                    <button class="size-btn" data-size="M" role="radio" aria-checked="true">M</button>
+                    <button class="size-btn" data-size="L" role="radio" aria-checked="false">L</button>
+                </div>
+                <div class="quantity">
+                    <label for="quantity-input">Quantity</label>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" id="decrement">-</button>
+                        <input type="number" id="quantity-input" value="1" min="1" aria-label="Quantity">
+                        <button class="quantity-btn" id="increment">+</button>
+                    </div>
+                </div>
+                <button class="add-to-cart" aria-label="Add to Cart">
+                    <span class="button-text">Add to Cart</span>
+                    <span class="spinner" style="display: none;"></span>
+                </button>
+                <div class="cart-message" id="cart-message" role="alert"></div>
+                <div class="social-share">
+                    <h3>Share this product</h3>
+                    <button class="share-btn" data-share="facebook">Facebook</button>
+                    <button class="share-btn" data-share="twitter">Twitter</button>
+                    <button class="share-btn" data-share="whatsapp">WhatsApp</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="description-section">
+            <h2>Description</h2>
+            <p><strong>Trijbs® Street Tee – White Heat Drop</strong></p>
+            <p>"Wear The Hustle."</p>
+            <p>Less talk, more impact. De Trijbs® Street Tee is geen basic tee, dit is pure street DNA. Clean wit canvas, crafted in heavy cotton met de signature Trijbs® logo. Subtle, maar met presence. Geen hype nodig, deze spreekt voor zichzelf. Gewoon straight-up kwaliteit die bij je hustle past.</p>
+            <ul>
+                <li>Easy fit – niet te strak, niet te los</li>
+                <li>Heavy cotton – duurzaam & stevig</li>
+                <li>Iconic Trijbs® logo – sharp & steady</li>
+                <li>Designed to flex van curbside tot rooftop</li>
+            </ul>
+            <p><strong>Trijbs® – Quiet Power. Loud Moves.</strong></p>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="reviews-section">
+            <h2>Customer Reviews</h2>
+            <div id="reviews-container"></div>
+            <button class="load-more-reviews" id="load-more-reviews">Load More Reviews</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            TRIJBS
+            <div class="dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <p>© Copyright 2025 Trijbs Inc.</p>
+        </div>
+        <div class="footer-column">
+            <h3>Product</h3>
+            <a href="#">Download</a>
+            <a href="#">Pricing</a>
+            <a href="#">Locations</a>
+            <a href="#">Server</a>
+            <a href="#">Countries</a>
+        </div>
+        <div class="footer-column">
+            <h3>Category</h3>
+            <a href="#">Men</a>
+            <a href="#">Women</a>
+            <a href="#">Kids</a>
+            <a href="#">Best Seller</a>
+            <a href="#">New Arrivals</a>
+        </div>
+        <div class="footer-column">
+            <h3>My Account</h3>
+            <a href="#">My Account</a>
+            <a href="#">Discount</a>
+            <a href="#">Returns</a>
+            <a href="#">Order History</a>
+            <a href="#">Order Tracking</a>
+        </div>
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <a href="#">Netherlands</a>
+            <a href="#">support@trijbs.nl</a>
+            <a href="#">+31 6 12345678</a>
+        </div>
+    </footer>
+
+    <script src="product.js"></script>
+</body>
+</html>
