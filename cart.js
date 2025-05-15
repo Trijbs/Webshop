@@ -82,21 +82,7 @@ async function displayCart() {
     });
 
     cartTotalElement.textContent = `€${total.toFixed(2)}`;
-    // Cart Button State Change
-const cartButton = document.getElementById('cartButton');
-let isItemAdded = false;
-
-cartButton.addEventListener('click', function() {
-    if (!isItemAdded) {
-        // Add item to cart
-        isItemAdded = true;
-        cartButton.textContent = 'Go to Checkout';
-        cartButton.classList.add('checkout');
-    } else {
-        // Redirect to checkout
-        window.location.href = '/checkout.html';
-    }
-});
+    
 }
 
 displayCart();
