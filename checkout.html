@@ -41,6 +41,7 @@
         .checkout-summary h3 { font-size: 1.2rem; margin-bottom: 1rem; }
         .summary-item { display: flex; justify-content: space-between; margin-bottom: 0.7rem; }
         .summary-total { font-weight: bold; color: var(--primary-color); font-size: 1.1rem; margin-top: 1.5rem; }
+        .cart-badge { background: var(--primary-color); color: #fff; border-radius: 50%; padding: 0.1rem 0.45rem; font-size: 0.72rem; font-weight: bold; margin-left: 0.25rem; display: none; }
         @media (max-width: 900px) { .checkout-section { flex-direction: column; padding: 1.5rem; gap: 2rem; } .checkout-summary { padding: 1rem; } }
         @media (max-width: 600px) { .checkout-section { padding: 0.5rem; } }
         footer { background: var(--secondary-color); padding: 4rem 2rem; margin-top: 4rem; }
@@ -59,7 +60,7 @@
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
             <a href="about.html">About</a>
-            <a href="cart.html">Cart</a>
+            <a href="cart.html">Cart <span class="cart-badge" id="cart-badge"></span></a>
         </nav>
     </header>
     <section class="checkout-section">
@@ -95,15 +96,15 @@
                 <ul>
                     <li><a href="about.html">Our Story</a></li>
                     <li><a href="about.html">Sustainability</a></li>
-                    <li><a href="about.html">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Customer Service</h3>
                 <ul>
-                    <li><a href="about.html">Contact Us</a></li>
-                    <li><a href="#">Shipping Info</a></li>
-                    <li><a href="#">Returns &amp; Exchanges</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="sizeguide.html">Size Guide</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -161,6 +162,9 @@
                 }, 1800);
             }, 1800);
         });
+    </script>
+    <script>
+        (function() { var c=JSON.parse(localStorage.getItem('trijbs_cart')||'[]'); var n=c.reduce(function(s,i){return s+i.quantity;},0); var b=document.getElementById('cart-badge'); if(b&&n>0){b.textContent=n;b.style.display='inline';} })();
     </script>
 </body>
 </html>

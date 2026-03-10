@@ -46,6 +46,7 @@
         .footer-section ul li { margin-bottom: 0.8rem; }
         .footer-section ul li a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
         .footer-section ul li a:hover { color: var(--primary-color); }
+        .cart-badge { background: var(--primary-color); color: #fff; border-radius: 50%; padding: 0.1rem 0.45rem; font-size: 0.72rem; font-weight: bold; margin-left: 0.25rem; display: none; }
         @media (max-width: 768px) { header { padding: 1rem; flex-direction: column; gap: 1rem; } nav { gap: 1rem; } .shop-section { padding: 5rem 1rem 2rem 1rem; } .products-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } }
     </style>
 </head>
@@ -56,7 +57,7 @@
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
             <a href="about.html">About</a>
-            <a href="cart.html">Cart</a>
+            <a href="cart.html">Cart <span class="cart-badge" id="cart-badge"></span></a>
         </nav>
     </header>
     <section class="shop-section">
@@ -74,22 +75,32 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Coming Soon">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?auto=format&fit=crop&w=600&q=80" alt="Heavyweight Hoodie">
                 </div>
                 <div class="product-info">
-                    <h3>Coming Soon...</h3>
-                    <p class="price">€150</p>
-                    <button class="view-btn" disabled>Coming Soon</button>
+                    <h3>Trijbs® Heavyweight Hoodie – Black Core</h3>
+                    <p class="price">€89.99</p>
+                    <a href="product-hoodie.html"><button class="view-btn">View Product</button></a>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1525966222134-fdfa99b8ae77?auto=format&fit=crop&w=600&q=80" alt="Coming Soon">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Track Joggers">
                 </div>
                 <div class="product-info">
-                    <h3>Coming Soon...</h3>
-                    <p class="price">€250</p>
-                    <button class="view-btn" disabled>Coming Soon</button>
+                    <h3>Trijbs® Track Joggers – Stealth Edition</h3>
+                    <p class="price">€64.99</p>
+                    <a href="product-joggers.html"><button class="view-btn">View Product</button></a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80" alt="Snapback Cap">
+                </div>
+                <div class="product-info">
+                    <h3>Trijbs® Snapback Cap – Urban Black</h3>
+                    <p class="price">€34.99</p>
+                    <a href="product-cap.html"><button class="view-btn">View Product</button></a>
                 </div>
             </div>
         </div>
@@ -101,15 +112,15 @@
                 <ul>
                     <li><a href="about.html">Our Story</a></li>
                     <li><a href="about.html">Sustainability</a></li>
-                    <li><a href="about.html">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Customer Service</h3>
                 <ul>
-                    <li><a href="about.html">Contact Us</a></li>
-                    <li><a href="#">Shipping Info</a></li>
-                    <li><a href="#">Returns &amp; Exchanges</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="sizeguide.html">Size Guide</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -122,5 +133,8 @@
             </div>
         </div>
     </footer>
+    <script>
+        (function() { var c=JSON.parse(localStorage.getItem('trijbs_cart')||'[]'); var n=c.reduce(function(s,i){return s+i.quantity;},0); var b=document.getElementById('cart-badge'); if(b&&n>0){b.textContent=n;b.style.display='inline';} })();
+    </script>
 </body>
 </html>

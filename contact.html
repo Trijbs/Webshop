@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - TRIJBS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta property="og:title" content="Contact TRIJBS">
+    <meta property="og:description" content="Get in touch with the TRIJBS team. We're here to help.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --primary-color: #ff4d4d;
+            --secondary-color: #2a2a2a;
+            --text-color: #ffffff;
+            --background-color: #1a1a1a;
+            --accent-color: #28a745;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        body { background-color: var(--background-color); color: var(--text-color); }
+        header { background-color: rgba(26, 26, 26, 0.95); padding: 1rem 2rem; position: sticky; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 2rem; font-weight: bold; background: linear-gradient(45deg, var(--primary-color), #ff8080); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
+        nav { display: flex; gap: 2rem; }
+        nav a { color: var(--text-color); text-decoration: none; font-size: 1rem; position: relative; padding: 0.5rem 0; }
+        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s ease; }
+        nav a:hover::after { width: 100%; }
+        .cart-badge { background: var(--primary-color); color: #fff; border-radius: 50%; padding: 0.1rem 0.45rem; font-size: 0.72rem; font-weight: bold; margin-left: 0.25rem; display: none; }
+        .page-hero { padding: 7rem 2rem 3rem; text-align: center; }
+        .page-hero h1 { font-size: 3rem; background: linear-gradient(45deg, var(--primary-color), #ff8080); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.8rem; }
+        .page-hero p { color: #aaa; font-size: 1.1rem; }
+        .contact-layout { max-width: 1000px; margin: 2rem auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1.4fr; gap: 2.5rem; }
+        .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-card { background: #232323; border-radius: 14px; padding: 1.8rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .contact-card i { font-size: 1.5rem; color: var(--primary-color); margin-top: 0.2rem; flex-shrink: 0; }
+        .contact-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+        .contact-card p, .contact-card a { color: #ccc; font-size: 0.95rem; text-decoration: none; line-height: 1.6; }
+        .contact-card a:hover { color: var(--primary-color); }
+        .contact-form-block { background: #232323; border-radius: 18px; padding: 2.5rem; }
+        .contact-form-block h2 { font-size: 1.4rem; margin-bottom: 1.5rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.2rem; }
+        .form-group label { font-size: 0.95rem; color: #ccc; }
+        .form-group input, .form-group select, .form-group textarea { padding: 0.85rem 1rem; border: 1px solid #444; border-radius: 8px; background: #1a1a1a; color: #fff; font-size: 1rem; font-family: inherit; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-color); }
+        .form-group textarea { min-height: 130px; resize: vertical; }
+        .form-group select option { background: #1a1a1a; }
+        .submit-btn { background: var(--primary-color); color: #fff; padding: 1rem 2.5rem; border: none; border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: background 0.2s; width: 100%; }
+        .submit-btn:hover { background: #e63939; }
+        .form-success { background: rgba(40,167,69,0.15); border: 1px solid var(--accent-color); border-radius: 8px; padding: 1rem 1.5rem; color: var(--accent-color); margin-top: 1rem; display: none; }
+        footer { background: var(--secondary-color); padding: 4rem 2rem; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+        .footer-section h3 { color: var(--primary-color); margin-bottom: 1.5rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin-bottom: 0.8rem; }
+        .footer-section ul li a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+        .footer-section ul li a:hover { color: var(--primary-color); }
+        @media (max-width: 768px) { header { padding: 1rem; flex-direction: column; gap: 1rem; } nav { gap: 1rem; } .contact-layout { grid-template-columns: 1fr; } .page-hero h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">TRIJBS</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="cart.html">Cart <span class="cart-badge" id="cart-badge"></span></a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Contact Us</h1>
+        <p>We typically reply within 24 hours on business days.</p>
+    </section>
+
+    <div class="contact-layout">
+        <div class="contact-info">
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>Email</h3>
+                    <a href="mailto:support@trijbs.com">support@trijbs.com</a>
+                    <p>For orders, returns and general questions.</p>
+                </div>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-instagram"></i>
+                <div>
+                    <h3>Instagram</h3>
+                    <a href="#">@trijbs</a>
+                    <p>DMs open for collabs and community.</p>
+                </div>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <h3>Response Time</h3>
+                    <p>Monday – Friday: within 24h<br>Weekends: within 48h</p>
+                </div>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h3>Based in</h3>
+                    <p>The Netherlands 🇳🇱<br>Shipping worldwide</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-block">
+            <h2>Send a Message</h2>
+            <form id="contact-form" onsubmit="submitContact(event)">
+                <div class="form-group">
+                    <label for="c-name">Full Name</label>
+                    <input type="text" id="c-name" required placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="c-email">Email</label>
+                    <input type="email" id="c-email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="c-subject">Subject</label>
+                    <select id="c-subject" required>
+                        <option value="" disabled selected>Choose a topic</option>
+                        <option value="order">Order question</option>
+                        <option value="return">Return / exchange</option>
+                        <option value="shipping">Shipping</option>
+                        <option value="collab">Collab / partnership</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="c-message">Message</label>
+                    <textarea id="c-message" required placeholder="Tell us what's up..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div class="form-success" id="form-success">
+                    <i class="fas fa-check-circle"></i> Message sent! We'll get back to you within 24 hours.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About TRIJBS</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="about.html">Sustainability</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="sizeguide.html">Size Guide</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function submitContact(e) {
+            e.preventDefault();
+            document.getElementById('form-success').style.display = 'block';
+            document.getElementById('contact-form').querySelectorAll('input, select, textarea').forEach(el => el.value = '');
+        }
+        (function() { var c=JSON.parse(localStorage.getItem('trijbs_cart')||'[]'); var n=c.reduce(function(s,i){return s+i.quantity;},0); var b=document.getElementById('cart-badge'); if(b&&n>0){b.textContent=n;b.style.display='inline';} })();
+    </script>
+</body>
+</html>

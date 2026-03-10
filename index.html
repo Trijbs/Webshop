@@ -26,7 +26,7 @@
         nav a { color: var(--text-color); text-decoration: none; font-size: 1rem; position: relative; padding: 0.5rem 0; }
         nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s ease; }
         nav a:hover::after { width: 100%; }
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(45deg, rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.7)); }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(160deg, rgba(26,26,26,0.88) 40%, rgba(255,77,77,0.18) 100%), url('https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; }
         .hero-content { text-align: center; z-index: 2; padding: 2rem; }
         .hero h1 { font-size: 4rem; margin-bottom: 1.5rem; background: linear-gradient(45deg, var(--primary-color), #ff8080); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin: 0 auto 2rem; }
@@ -37,6 +37,25 @@
         .stat { background: var(--secondary-color); border-radius: 12px; padding: 2rem; text-align: center; }
         .stat i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem; }
         .stat p { font-size: 1.1rem; }
+        .new-drop-banner { background: var(--primary-color); padding: 1rem 2rem; text-align: center; font-size: 1rem; font-weight: bold; letter-spacing: 1px; }
+        .new-drop-banner a { color: #fff; text-decoration: none; }
+        .new-drop-banner a:hover { text-decoration: underline; }
+        .testimonials { padding: 4rem 2rem; background: #1e1e1e; }
+        .testimonials h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+        .testimonial-card { background: var(--secondary-color); border-radius: 14px; padding: 2rem; }
+        .testimonial-stars { color: #f5c518; font-size: 1.2rem; margin-bottom: 0.8rem; }
+        .testimonial-text { color: #ccc; line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
+        .testimonial-author { font-weight: bold; color: var(--primary-color); }
+        .newsletter { padding: 4rem 2rem; text-align: center; }
+        .newsletter h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .newsletter p { color: #aaa; margin-bottom: 2rem; }
+        .newsletter-form { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-form input { padding: 0.9rem 1.5rem; border: none; border-radius: 50px; font-size: 1rem; width: 320px; max-width: 100%; background: #232323; color: #fff; border: 1px solid #444; }
+        .newsletter-form input::placeholder { color: #777; }
+        .newsletter-form button { background: var(--primary-color); color: #fff; padding: 0.9rem 2rem; border: none; border-radius: 50px; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
+        .newsletter-form button:hover { background: #e63939; }
+        .newsletter-success { color: var(--accent-color); margin-top: 1rem; display: none; }
         .products-preview { padding: 4rem 2rem; }
         .products-preview h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
@@ -57,6 +76,7 @@
         .footer-section ul li { margin-bottom: 0.8rem; }
         .footer-section ul li a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
         .footer-section ul li a:hover { color: var(--primary-color); }
+        .cart-badge { background: var(--primary-color); color: #fff; border-radius: 50%; padding: 0.1rem 0.45rem; font-size: 0.72rem; font-weight: bold; margin-left: 0.25rem; display: none; }
         @media (max-width: 768px) { header { padding: 1rem; flex-direction: column; gap: 1rem; } nav { gap: 1rem; } .hero h1 { font-size: 2.5rem; } .products-preview { padding: 2rem 1rem; } .products-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } }
     </style>
 </head>
@@ -67,7 +87,7 @@
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
             <a href="about.html">About</a>
-            <a href="cart.html">Cart</a>
+            <a href="cart.html">Cart <span class="cart-badge" id="cart-badge"></span></a>
         </nav>
     </header>
     <section class="hero" id="home">
@@ -92,22 +112,22 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Coming Soon">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?auto=format&fit=crop&w=600&q=80" alt="Heavyweight Hoodie">
                 </div>
                 <div class="product-info">
-                    <h3>Coming Soon...</h3>
-                    <p class="price">€150</p>
-                    <button class="view-btn" disabled>Coming Soon</button>
+                    <h3>Trijbs® Heavyweight Hoodie – Black Core</h3>
+                    <p class="price">€89.99</p>
+                    <a href="product-hoodie.html"><button class="view-btn">View Product</button></a>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1525966222134-fdfa99b8ae77?auto=format&fit=crop&w=600&q=80" alt="Coming Soon">
+                    <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80" alt="Snapback Cap">
                 </div>
                 <div class="product-info">
-                    <h3>Coming Soon...</h3>
-                    <p class="price">€250</p>
-                    <button class="view-btn" disabled>Coming Soon</button>
+                    <h3>Trijbs® Snapback Cap – Urban Black</h3>
+                    <p class="price">€34.99</p>
+                    <a href="product-cap.html"><button class="view-btn">View Product</button></a>
                 </div>
             </div>
         </div>
@@ -132,6 +152,38 @@
             </div>
         </div>
     </section>
+    <div class="new-drop-banner">
+        🔥 NEW DROP: Trijbs® Heavyweight Hoodie is here — <a href="product-hoodie.html">Shop Now</a>
+    </div>
+    <section class="testimonials">
+        <h2>What They Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"De kwaliteit is echt op een ander level. Trijbs® is de enige brand die ik nog koop voor basics."</p>
+                <div class="testimonial-author">— Jesse R., Amsterdam</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Snel geleverd, verpakking was fire, en de hoodie past perfect. Zeker een fan voor het leven."</p>
+                <div class="testimonial-author">— Daan V., Rotterdam</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Eindelijk een streetwear merk dat doet wat het belooft. Geen hype, gewoon kwaliteit."</p>
+                <div class="testimonial-author">— Lara M., Utrecht</div>
+            </div>
+        </div>
+    </section>
+    <section class="newsletter">
+        <h2>Stay in the Loop</h2>
+        <p>Join the TRIJBS inner circle — get early access to drops, exclusive offers, and updates.</p>
+        <div class="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="your@email.com">
+            <button onclick="subscribeNewsletter()">Subscribe</button>
+        </div>
+        <div class="newsletter-success" id="newsletter-success">You're in! Welcome to the TRIJBS family. 🔥</div>
+    </section>
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -139,15 +191,15 @@
                 <ul>
                     <li><a href="about.html">Our Story</a></li>
                     <li><a href="about.html">Sustainability</a></li>
-                    <li><a href="about.html">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Customer Service</h3>
                 <ul>
-                    <li><a href="about.html">Contact Us</a></li>
-                    <li><a href="#">Shipping Info</a></li>
-                    <li><a href="#">Returns &amp; Exchanges</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="sizeguide.html">Size Guide</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -160,5 +212,14 @@
             </div>
         </div>
     </footer>
+    <script>
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletter-email').value;
+            if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
+            document.getElementById('newsletter-success').style.display = 'block';
+            document.getElementById('newsletter-email').value = '';
+        }
+        (function() { var c=JSON.parse(localStorage.getItem('trijbs_cart')||'[]'); var n=c.reduce(function(s,i){return s+i.quantity;},0); var b=document.getElementById('cart-badge'); if(b&&n>0){b.textContent=n;b.style.display='inline';} })();
+    </script>
 </body>
 </html>

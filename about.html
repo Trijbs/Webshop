@@ -41,6 +41,7 @@
         .value-item p { font-size: 0.9rem; color: #aaa; margin: 0; }
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
         .contact-item { display: flex; align-items: center; gap: 1rem; background: #292929; border-radius: 10px; padding: 1.2rem; }
+        .cart-badge { background: var(--primary-color); color: #fff; border-radius: 50%; padding: 0.1rem 0.45rem; font-size: 0.72rem; font-weight: bold; margin-left: 0.25rem; display: none; }
         .contact-item i { font-size: 1.4rem; color: var(--primary-color); flex-shrink: 0; }
         .contact-item a { color: #ccc; text-decoration: none; transition: color 0.3s; }
         .contact-item a:hover { color: var(--primary-color); }
@@ -61,7 +62,7 @@
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
             <a href="about.html" class="active">About</a>
-            <a href="cart.html">Cart</a>
+            <a href="cart.html">Cart <span class="cart-badge" id="cart-badge"></span></a>
         </nav>
     </header>
 
@@ -130,15 +131,15 @@
                 <ul>
                     <li><a href="about.html">Our Story</a></li>
                     <li><a href="about.html">Sustainability</a></li>
-                    <li><a href="about.html">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Customer Service</h3>
                 <ul>
-                    <li><a href="about.html">Contact Us</a></li>
-                    <li><a href="#">Shipping Info</a></li>
-                    <li><a href="#">Returns &amp; Exchanges</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="sizeguide.html">Size Guide</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -151,5 +152,8 @@
             </div>
         </div>
     </footer>
+    <script>
+        (function() { var c=JSON.parse(localStorage.getItem('trijbs_cart')||'[]'); var n=c.reduce(function(s,i){return s+i.quantity;},0); var b=document.getElementById('cart-badge'); if(b&&n>0){b.textContent=n;b.style.display='inline';} })();
+    </script>
 </body>
 </html>

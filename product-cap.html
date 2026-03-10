@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trijbs® Street Tee – White Heat Drop</title>
+    <title>Trijbs® Snapback Cap – Urban Black</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <meta property="og:title" content="Trijbs® Street Tee – White Heat Drop">
-    <meta property="og:description" content="Wear The Hustle. Heavy cotton, iconic Trijbs® logo, easy fit. €19.99.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:title" content="Trijbs® Snapback Cap – Urban Black">
+    <meta property="og:description" content="Structured snapback with embroidered Trijbs® logo. One size fits all. €34.99.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1200&q=80">
     <meta property="og:type" content="product">
     <meta name="twitter:card" content="summary_large_image">
     <style>
@@ -21,13 +20,14 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
         body { background-color: var(--background-color); color: var(--text-color); }
-        header { background-color: rgba(26, 26, 26, 0.95); padding: 1rem 2rem; position: sticky; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        header { background-color: rgba(26, 26, 26, 0.95); padding: 1rem 2rem; position: sticky; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 2rem; font-weight: bold; background: linear-gradient(45deg, var(--primary-color), #ff8080); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
         nav { display: flex; gap: 2rem; }
         nav a { color: var(--text-color); text-decoration: none; font-size: 1rem; position: relative; padding: 0.5rem 0; }
         nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s ease; }
         nav a:hover::after { width: 100%; }
-        .main-content { max-width: 1100px; margin: 7rem auto 2rem auto; background: #232323; border-radius: 18px; padding: 2.5rem; display: flex; gap: 3rem; box-shadow: 0 8px 32px rgba(0,0,0,0.15);}
+        .cart-badge { background: var(--primary-color); color: #fff; border-radius: 50%; padding: 0.1rem 0.45rem; font-size: 0.72rem; font-weight: bold; margin-left: 0.25rem; display: none; }
+        .main-content { max-width: 1100px; margin: 7rem auto 2rem auto; background: #232323; border-radius: 18px; padding: 2.5rem; display: flex; gap: 3rem; box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
         .product-gallery { flex: 1; }
         .main-img { width: 100%; border-radius: 12px; margin-bottom: 1rem; }
         .thumbnails { display: flex; gap: 0.5rem; }
@@ -36,37 +36,30 @@
         .product-details { flex: 1.2; display: flex; flex-direction: column; }
         .product-details h1 { font-size: 2rem; margin-bottom: 0.5rem; }
         .price { color: var(--primary-color); font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem; }
-        .availability { font-size: 1rem; margin-bottom: 0.5rem; color: var(--accent-color);}
+        .availability { font-size: 1rem; margin-bottom: 0.5rem; color: var(--accent-color); }
         .shipping { font-size: 0.95rem; color: #bbb; margin-bottom: 1.2rem; }
         .options { margin-bottom: 1.2rem; }
         .options label { font-size: 1rem; margin-right: 1rem; }
-        .color-dot { display: inline-block; width: 28px; height: 28px; border-radius: 50%; margin-right: 10px; border: 2px solid #fff; cursor: pointer; vertical-align: middle;}
-        .color-dot.selected, .color-dot:hover { border: 2px solid var(--primary-color);}
-        .color-black { background: #111; }
-        .color-white { background: #fff; }
-        .color-grey { background: #888; }
-        .color-green { background: #28a745; }
-        .sizes { margin-bottom: 1.2rem; }
-        .size-btn { padding: 0.5rem 1.2rem; margin-right: 0.7rem; border: 1px solid #bbb; background: #2a2a2a; color: #fff; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
-        .size-btn.selected, .size-btn:hover { background: var(--primary-color); color: #fff; border: 1px solid var(--primary-color);}
+        .color-dot { display: inline-block; width: 28px; height: 28px; border-radius: 50%; margin-right: 10px; border: 2px solid #fff; cursor: pointer; vertical-align: middle; }
+        .color-dot.selected, .color-dot:hover { border: 2px solid var(--primary-color); }
+        .color-black { background: #111; } .color-white { background: #eee; } .color-red { background: #ff4d4d; }
+        .size-info { font-size: 0.95rem; color: #aaa; margin-bottom: 1.2rem; }
         .quantity { margin-bottom: 1.2rem; }
         .quantity-controls { display: flex; align-items: center; gap: 0.7rem; }
         .quantity-btn { padding: 0.3rem 0.9rem; border: 1px solid #bbb; background: #2a2a2a; color: #fff; border-radius: 6px; cursor: pointer; }
         .quantity-btn:hover { background: #444; }
         .quantity-input { width: 50px; padding: 0.3rem; text-align: center; border: 1px solid #bbb; border-radius: 6px; background: #fff; color: #222; }
         .add-to-cart-btn { background: var(--primary-color); color: #fff; padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1.1rem; cursor: pointer; margin-bottom: 1rem; transition: background 0.2s; width: 100%; }
-        .add-to-cart-btn.added { background: var(--accent-color);}
-        .cart-message { font-size: 1rem; color: var(--accent-color); margin-bottom: 1rem; display: none;}
-        .description-section, .reviews-section { background: #232323; border-radius: 12px; padding: 2rem; margin: 2rem auto; max-width: 900px;}
-        .description-section h2, .reviews-section h2 { font-size: 1.3rem; margin-bottom: 1rem;}
+        .add-to-cart-btn.added { background: var(--accent-color); }
+        .cart-message { font-size: 1rem; color: var(--accent-color); margin-bottom: 1rem; display: none; }
+        .description-section, .reviews-section { background: #232323; border-radius: 12px; padding: 2rem; margin: 2rem auto; max-width: 900px; }
+        .description-section h2, .reviews-section h2 { font-size: 1.3rem; margin-bottom: 1rem; }
         .description-section ul { margin-left: 1.5rem; }
-        .review { border-bottom: 1px solid #333; padding-bottom: 1rem; margin-bottom: 1rem;}
+        .review { border-bottom: 1px solid #333; padding-bottom: 1rem; margin-bottom: 1rem; }
         .review:last-child { border-bottom: none; }
         .review-header { display: flex; justify-content: space-between; align-items: center; }
         .reviewer-name { font-weight: bold; }
         .review-rating { color: #f5c518; }
-        .load-more-reviews { background: #333; color: #fff; padding: 0.7rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; margin: 0 auto; display: block; }
-        .load-more-reviews:hover { background: #555; }
         footer { background: var(--secondary-color); padding: 4rem 2rem; margin-top: 4rem; }
         .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
         .footer-section h3 { color: var(--primary-color); margin-bottom: 1.5rem; }
@@ -74,7 +67,6 @@
         .footer-section ul li { margin-bottom: 0.8rem; }
         .footer-section ul li a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
         .footer-section ul li a:hover { color: var(--primary-color); }
-        .cart-badge { background: var(--primary-color); color: #fff; border-radius: 50%; padding: 0.1rem 0.45rem; font-size: 0.72rem; font-weight: bold; margin-left: 0.25rem; display: none; }
         @media (max-width: 900px) { .main-content { flex-direction: column; padding: 1.5rem; gap: 2rem; } }
         @media (max-width: 600px) { .main-content { padding: 0.5rem; } .product-details h1 { font-size: 1.2rem; } }
     </style>
@@ -91,32 +83,25 @@
     </header>
     <div class="main-content">
         <div class="product-gallery">
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Trijbs Street Tee" class="main-img" id="main-img">
+            <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80" alt="Trijbs Snapback Cap" class="main-img" id="main-img">
             <div class="thumbnails">
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Thumb 1" class="selected" data-img="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80">
-                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Thumb 2" data-img="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80">
-                <img src="https://images.unsplash.com/photo-1525966222134-fdfa99b8ae77?auto=format&fit=crop&w=600&q=80" alt="Thumb 3" data-img="https://images.unsplash.com/photo-1525966222134-fdfa99b8ae77?auto=format&fit=crop&w=600&q=80">
+                <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80" alt="Front" class="selected" data-img="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80">
+                <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=600&q=80" alt="Side" data-img="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=600&q=80">
+                <img src="https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=600&q=80" alt="Style" data-img="https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=600&q=80">
             </div>
         </div>
         <div class="product-details">
-            <h1>Trijbs® Street Tee – White Heat Drop</h1>
-            <div class="price">€19.99</div>
+            <h1>Trijbs® Snapback Cap – Urban Black</h1>
+            <div class="price">€34.99</div>
             <div class="availability">In Stock</div>
             <div class="shipping">Shipping calculated at checkout.</div>
             <div class="options">
                 <label>Color:</label>
                 <span class="color-dot color-black selected" data-color="Black" title="Black"></span>
                 <span class="color-dot color-white" data-color="White" title="White"></span>
-                <span class="color-dot color-grey" data-color="Grey" title="Grey"></span>
-                <span class="color-dot color-green" data-color="Green" title="Green"></span>
+                <span class="color-dot color-red" data-color="Red" title="Red"></span>
             </div>
-            <div class="sizes">
-                <label>Size:</label>
-                <button class="size-btn selected" data-size="M">M</button>
-                <button class="size-btn" data-size="S">S</button>
-                <button class="size-btn" data-size="L">L</button>
-                <button class="size-btn" data-size="XL">XL</button>
-            </div>
+            <div class="size-info"><i class="fas fa-info-circle"></i> One size fits all – adjustable snapback closure</div>
             <div class="quantity">
                 <label>Quantity:</label>
                 <div class="quantity-controls">
@@ -131,14 +116,15 @@
     </div>
     <div class="description-section">
         <h2>Description</h2>
-        <p><strong>Trijbs® Street Tee – White Heat Drop</strong></p>
-        <p>"Wear The Hustle."</p>
-        <p>Less talk, more impact. De Trijbs® Street Tee is geen basic tee, dit is pure street DNA. Clean wit canvas, crafted in heavy cotton met de signature Trijbs® logo. Subtle, maar met presence. Geen hype nodig, deze spreekt voor zichzelf. Gewoon straight-up kwaliteit die bij je hustle past.</p>
+        <p><strong>Trijbs® Snapback Cap – Urban Black</strong></p>
+        <p>"Top it off right."</p>
+        <p>De finishing touch voor elke fit. De Trijbs® Snapback is structured, clean en draagt het Trijbs® logo met precision. Of je nu op de route bent of relaxed in de stad — deze cap zet de toon. One size fits all met snapback closure voor de perfecte fit.</p>
         <ul>
-            <li>Easy fit – niet te strak, niet te los</li>
-            <li>Heavy cotton – duurzaam & stevig</li>
-            <li>Iconic Trijbs® logo – sharp & steady</li>
-            <li>Designed to flex van curbside tot rooftop</li>
+            <li>6-panel structured crown</li>
+            <li>Flat brim – keep it clean</li>
+            <li>Embroidered Trijbs® logo op de front panel</li>
+            <li>Snapback closure – one size fits all</li>
+            <li>Premium cotton canvas buitenkant</li>
         </ul>
         <p><strong>Trijbs® – Quiet Power. Loud Moves.</strong></p>
     </div>
@@ -146,19 +132,18 @@
         <h2>Customer Reviews</h2>
         <div class="review">
             <div class="review-header">
-                <span class="reviewer-name">Jesse</span>
+                <span class="reviewer-name">Noa</span>
                 <span class="review-rating">★★★★★</span>
             </div>
-            <p>Super kwaliteit en snel geleverd. Aanrader!</p>
+            <p>Zit super goed en past bij alles wat ik heb. Logostitching is netjes.</p>
         </div>
         <div class="review">
             <div class="review-header">
-                <span class="reviewer-name">Sanne</span>
-                <span class="review-rating">★★★★☆</span>
+                <span class="reviewer-name">Tim</span>
+                <span class="review-rating">★★★★★</span>
             </div>
-            <p>Fijne stof en mooie pasvorm. Zou opnieuw kopen.</p>
+            <p>Al de tweede die ik koop. Zwart is echt top, nu ook de rode besteld.</p>
         </div>
-        <button class="load-more-reviews">Load More Reviews</button>
     </div>
     <footer>
         <div class="footer-content">
@@ -167,13 +152,13 @@
                 <ul>
                     <li><a href="about.html">Our Story</a></li>
                     <li><a href="about.html">Sustainability</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Customer Service</h3>
                 <ul>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="about.html">Contact Us</a></li>
                     <li><a href="sizeguide.html">Size Guide</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                 </ul>
@@ -181,15 +166,14 @@
             <div class="footer-section">
                 <h3>Connect</h3>
                 <ul>
-                    <li><a href="#instagram">Instagram</a></li>
-                    <li><a href="#twitter">Twitter</a></li>
-                    <li><a href="#facebook">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
                 </ul>
             </div>
         </div>
     </footer>
     <script>
-        // Gallery logic
         const mainImg = document.getElementById('main-img');
         document.querySelectorAll('.thumbnails img').forEach(thumb => {
             thumb.addEventListener('click', function() {
@@ -198,48 +182,27 @@
                 mainImg.src = this.dataset.img;
             });
         });
-
-        // Color selection
         document.querySelectorAll('.color-dot').forEach(dot => {
             dot.addEventListener('click', function() {
                 document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('selected'));
                 this.classList.add('selected');
             });
         });
-
-        // Size selection
-        document.querySelectorAll('.size-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
-                this.classList.add('selected');
-            });
-        });
-
-        // Quantity controls
         const quantityInput = document.getElementById('quantity-input');
-        document.getElementById('decrement').onclick = () => {
-            if (quantityInput.value > 1) quantityInput.value--;
-        };
-        document.getElementById('increment').onclick = () => {
-            quantityInput.value++;
-        };
+        document.getElementById('decrement').onclick = () => { if (quantityInput.value > 1) quantityInput.value--; };
+        document.getElementById('increment').onclick = () => { quantityInput.value++; };
 
-        // Add to Cart button logic
         const addToCartBtn = document.getElementById('add-to-cart-btn');
         const cartMessage = document.getElementById('cart-message');
         let added = false;
         addToCartBtn.addEventListener('click', function() {
             if (!added) {
                 const selectedColor = document.querySelector('.color-dot.selected')?.dataset.color || 'Black';
-                const selectedSize = document.querySelector('.size-btn.selected')?.dataset.size || 'M';
                 const qty = parseInt(quantityInput.value) || 1;
                 const cartItem = {
-                    name: "Trijbs® Street Tee – White Heat Drop",
-                    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80",
-                    color: selectedColor,
-                    size: selectedSize,
-                    price: 19.99,
-                    quantity: qty
+                    name: "Trijbs® Snapback Cap – Urban Black",
+                    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80",
+                    color: selectedColor, size: "One Size", price: 34.99, quantity: qty
                 };
                 let cart = JSON.parse(localStorage.getItem('trijbs_cart') || '[]');
                 cart.push(cartItem);
@@ -253,8 +216,6 @@
                 window.location.href = 'cart.html';
             }
         });
-
-        // Cart badge
         (function() { var c=JSON.parse(localStorage.getItem('trijbs_cart')||'[]'); var n=c.reduce(function(s,i){return s+i.quantity;},0); var b=document.getElementById('cart-badge'); if(b&&n>0){b.textContent=n;b.style.display='inline';} })();
     </script>
 </body>
