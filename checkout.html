@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - TRIJBS</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta property="og:title" content="Checkout – TRIJBS">
+    <meta property="og:description" content="Complete your TRIJBS order securely.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         :root {
             --primary-color: #ff4d4d;
@@ -53,7 +58,7 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
-            <a href="#about">About</a>
+            <a href="about.html">About</a>
             <a href="cart.html">Cart</a>
         </nav>
     </header>
@@ -79,8 +84,8 @@
         </div>
         <div class="checkout-summary">
             <h3>Order Summary</h3>
-            <div class="summary-item"><span>Trijbs® Street Tee</span><span>€19.99 x 2</span></div>
-            <div class="summary-total">Total: €39.98</div>
+            <div id="checkout-items"></div>
+            <div class="summary-total" id="checkout-total">Total: €0.00</div>
         </div>
     </section>
     <footer>
@@ -88,17 +93,17 @@
             <div class="footer-section">
                 <h3>About TRIJBS</h3>
                 <ul>
-                    <li><a href="#story">Our Story</a></li>
-                    <li><a href="#sustainability">Sustainability</a></li>
-                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="about.html">Sustainability</a></li>
+                    <li><a href="about.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Customer Service</h3>
                 <ul>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#shipping">Shipping Info</a></li>
-                    <li><a href="#returns">Returns & Exchanges</a></li>
+                    <li><a href="about.html">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns &amp; Exchanges</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -112,6 +117,33 @@
         </div>
     </footer>
     <script>
+        // Render order summary from localStorage
+        (function() {
+            const cart = JSON.parse(localStorage.getItem('trijbs_cart') || '[]');
+            const itemsEl = document.getElementById('checkout-items');
+            const totalEl = document.getElementById('checkout-total');
+            if (cart.length === 0) {
+                itemsEl.innerHTML = '<div style="color:#aaa;margin-bottom:1rem;">No items in cart.</div>';
+                return;
+            }
+            let total = 0;
+            cart.forEach(item => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+                const row = document.createElement('div');
+                row.className = 'summary-item';
+                row.innerHTML = `<span>${item.name} (${item.color}, ${item.size})</span><span>€${item.price.toFixed(2)} x ${item.quantity}</span>`;
+                itemsEl.appendChild(row);
+            });
+            totalEl.textContent = `Total: €${total.toFixed(2)}`;
+        })();
+
+        // Card number formatting (XXXX XXXX XXXX XXXX)
+        document.getElementById('card').addEventListener('input', function() {
+            let val = this.value.replace(/\D/g, '').slice(0, 16);
+            this.value = val.replace(/(.{4})/g, '$1 ').trim();
+        });
+
         // Simulate payment and redirect
         document.getElementById('checkout-form').addEventListener('submit', function(e) {
             e.preventDefault();

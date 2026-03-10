@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You - TRIJBS</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta property="og:title" content="Order Confirmed – TRIJBS">
+    <meta property="og:description" content="Thanks for your order! Your TRIJBS drop is on its way.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         :root {
             --primary-color: #ff4d4d;
@@ -42,7 +47,7 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
-            <a href="#about">About</a>
+            <a href="about.html">About</a>
             <a href="cart.html">Cart</a>
         </nav>
     </header>
@@ -57,17 +62,17 @@
             <div class="footer-section">
                 <h3>About TRIJBS</h3>
                 <ul>
-                    <li><a href="#story">Our Story</a></li>
-                    <li><a href="#sustainability">Sustainability</a></li>
-                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="about.html">Sustainability</a></li>
+                    <li><a href="about.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Customer Service</h3>
                 <ul>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#shipping">Shipping Info</a></li>
-                    <li><a href="#returns">Returns & Exchanges</a></li>
+                    <li><a href="about.html">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns &amp; Exchanges</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -80,5 +85,8 @@
             </div>
         </div>
     </footer>
+    <script>
+        localStorage.removeItem('trijbs_cart');
+    </script>
 </body>
 </html>

@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trijbs® Street Tee – White Heat Drop</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta property="og:title" content="Trijbs® Street Tee – White Heat Drop">
+    <meta property="og:description" content="Wear The Hustle. Heavy cotton, iconic Trijbs® logo, easy fit. €19.99.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" content="product">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         :root {
             --primary-color: #ff4d4d;
@@ -79,7 +84,7 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
-            <a href="#about">About</a>
+            <a href="about.html">About</a>
             <a href="cart.html">Cart</a>
         </nav>
     </header>
@@ -159,17 +164,17 @@
             <div class="footer-section">
                 <h3>About TRIJBS</h3>
                 <ul>
-                    <li><a href="#story">Our Story</a></li>
-                    <li><a href="#sustainability">Sustainability</a></li>
-                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="about.html">Sustainability</a></li>
+                    <li><a href="about.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Customer Service</h3>
                 <ul>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#shipping">Shipping Info</a></li>
-                    <li><a href="#returns">Returns & Exchanges</a></li>
+                    <li><a href="about.html">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns &amp; Exchanges</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -224,13 +229,27 @@
         let added = false;
         addToCartBtn.addEventListener('click', function() {
             if (!added) {
-                this.textContent = 'Go to Checkout';
+                const selectedColor = document.querySelector('.color-dot.selected')?.dataset.color || 'Black';
+                const selectedSize = document.querySelector('.size-btn.selected')?.dataset.size || 'M';
+                const qty = parseInt(quantityInput.value) || 1;
+                const cartItem = {
+                    name: "Trijbs® Street Tee – White Heat Drop",
+                    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80",
+                    color: selectedColor,
+                    size: selectedSize,
+                    price: 19.99,
+                    quantity: qty
+                };
+                let cart = JSON.parse(localStorage.getItem('trijbs_cart') || '[]');
+                cart.push(cartItem);
+                localStorage.setItem('trijbs_cart', JSON.stringify(cart));
+                this.textContent = 'Go to Cart';
                 this.classList.add('added');
                 cartMessage.style.display = 'block';
                 setTimeout(() => { cartMessage.style.display = 'none'; }, 2000);
                 added = true;
             } else {
-                window.location.href = 'checkout.html';
+                window.location.href = 'cart.html';
             }
         });
     </script>
